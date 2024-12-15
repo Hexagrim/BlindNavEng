@@ -22,7 +22,7 @@
       max-width: 600px;
     }
 
-    button {
+button {
     position: absolute;
     bottom: 10px;
     left: 50%;
@@ -34,7 +34,17 @@
     font-size: 18px;
     cursor: pointer;
     z-index: 10; /* Ensure the button is above the video */
-
+    text-align: center;
+    overflow: hidden; /* Prevent the padding from displaying weird behavior */
+}
+    button span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11; /* Make sure the text stays above the button */
+    pointer-events: none; /* Prevent interaction with the span */
+    color: white; /* Ensure text color contrasts well */
 }
 
     canvas {
@@ -64,7 +74,7 @@
 
 <body>
   <video id="video" autoplay></video>
-  <button id="capture-btn">Take Picture</button>
+  <button id="capture-btn"><span>Click!</span></button>
   <canvas id="canvas"></canvas>
   <img id="photo" alt="Captured Image" />
   <div class="output">(Results will appear here)</div>
